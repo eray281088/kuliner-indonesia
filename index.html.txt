@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuliner Indonesia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Kuliner Indonesia</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#resep">Resep</a></li>
+                <li><a href="#ulasan">Ulasan</a></li>
+                <li><a href="#budaya">Budaya Kuliner</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>Selamat Datang di Kuliner Indonesia</h2>
+            <p>Jelajahi kelezatan masakan Indonesia yang kaya rasa dan budaya.</p>
+            <h3>Galeri Foto</h3>
+            <div class="gallery">
+                <img src="https://via.placeholder.com/150" alt="Nasi Goreng">
+                <img src="https://via.placeholder.com/150" alt="Rendang">
+                <img src="https://via.placeholder.com/150" alt="Sate Ayam">
+            </div>
+        </section>
+
+        <section id="resep">
+            <h2>Resep Populer</h2>
+            <ul>
+                <li>Nasi Goreng</li>
+                <li>Rendang</li>
+                <li>Sate Ayam</li>
+            </ul>
+        </section>
+
+        <section id="ulasan">
+            <h2>Ulasan Pengguna</h2>
+            <p>Berikan ulasan Anda tentang masakan favorit Anda!</p>
+            <form id="reviewForm">
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" name="nama" required>
+                <label for="ulasan">Ulasan:</label>
+                <textarea id="ulasan" name="ulasan" required></textarea>
+                <button type="submit">Kirim</button>
+            </form>
+            <div id="reviewList"></div>
+        </section>
+
+        <section id="budaya">
+            <h2>Budaya Kuliner</h2>
+            <p>Pelajari lebih lanjut tentang sejarah dan budaya di balik masakan Indonesia.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Kuliner Indonesia. Semua hak dilindungi.</p>
+    </footer>
+
+    <script>
+        document.getElementById('reviewForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah pengiriman formulir
+
+            const nama = document.getElementById('nama').value;
+            const ulasan = document.getElementById('ulasan').value;
+
+            const reviewList = document.getElementById('reviewList');
+            const ulasanList = document.createElement('div');
+            ulasanList.innerHTML = `<strong>${nama}</strong>: <p>${ulasan}</p>`;
+            reviewList.appendChild(ulasanList);
+
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
